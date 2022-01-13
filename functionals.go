@@ -39,3 +39,21 @@ func Product[T Number](xs []T) T {
 	var accu = T(1)
 	return FoldLeft(xs, accu, func(x, y T) T { return x * y })
 }
+
+func All[T any](xs []T, fct func(x T) bool) bool {
+	for i := 0; i < len(xs); i++ {
+		if !fct(xs[i]) {
+			return false
+		}
+	}
+	return true
+}
+
+func Any[T any](xs []T, fct func(x T) bool) bool {
+	for i := 0; i < len(xs); i++ {
+		if fct(xs[i]) {
+			return true
+		}
+	}
+	return false
+}

@@ -23,4 +23,6 @@ func main() {
 	fmt.Printf("%v\n", functionals.Product(xs))
 	fmt.Printf("%v\n", binToDec("1011"))
 	fmt.Printf("%v\n", reverse(xs))
+	fmt.Printf("%v\n", functionals.All([]int{2, 4, 6, 8}, func(x int) bool { return x%2 == 0 }))
+	fmt.Printf("%v\n", functionals.Any([]int{2, 4, 5, 6, 8}, func(x int) bool { return x%2 == 1 }))
 }

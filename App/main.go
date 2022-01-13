@@ -11,18 +11,12 @@ func binToDec(bin string) int {
 	})
 }
 
-func reverse(xs []int) []int {
-	return functionals.FoldLeft(xs, []int{}, func(acc []int, x int) []int {
-		return append([]int{x}, acc...)
-	})
-}
-
 func main() {
 	xs := []int{1, 2, 3, 4}
 	fmt.Printf("%v\n", functionals.Sum(xs))
 	fmt.Printf("%v\n", functionals.Product(xs))
 	fmt.Printf("%v\n", binToDec("1011"))
-	fmt.Printf("%v\n", reverse(xs))
+	fmt.Printf("%v\n", functionals.Reverse(xs))
 	fmt.Printf("%v\n", functionals.All([]int{2, 4, 6, 8}, func(x int) bool { return x%2 == 0 }))
 	fmt.Printf("%v\n", functionals.Any([]int{2, 4, 5, 6, 8}, func(x int) bool { return x%2 == 1 }))
 }

@@ -1,0 +1,3 @@
+# functionals
+
+Go implementations of some functional patterns...

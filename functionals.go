@@ -59,7 +59,9 @@ func Any[T any](xs []T, fct func(x T) bool) bool {
 }
 
 func Reverse[T any](xs []T) []T {
-	return FoldLeft(xs, []T{}, func(acc []T, x T) []T {
-		return append([]T{x}, acc...)
-	})
+	lg := len(xs)
+	for i := 0; i < lg/2; i++ {
+		xs[i], xs[lg-1-i] = xs[lg-1-i], xs[i]
+	}
+	return xs
 }

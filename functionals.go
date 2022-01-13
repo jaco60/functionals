@@ -1,5 +1,10 @@
 package functionals
 
+type Number interface {
+	int | uint | int8 | uint8 | int16 | uint16 | int32 | uint32 | int64 | uint64 |
+		float64 | float32
+}
+
 func Map[T, S any](xs []T, fct func(x T) S) []S {
 	res := make([]S, len(xs))
 	for i, e := range xs {
@@ -23,11 +28,6 @@ func FoldLeft[T, S any](xs []T, accu S, fct func(acc S, e T) S) S {
 		accu = fct(accu, e)
 	}
 	return accu
-}
-
-type Number interface {
-	int | uint | int8 | uint8 | int16 | uint16 | int32 | uint32 | int64 | uint64 |
-		float64 | float32
 }
 
 func Sum[T Number](xs []T) T {
